@@ -12,14 +12,13 @@
 <fieldset>
   <legend>{repo}</legend>
   {#await fetchData()}
-    <span>loading.</span>
+    <span>loading...</span>
   {:then data}
     <span>{data.description}</span>
     <span><Fa icon={faCode} />{data.language}</span>
-    <span
-      ><Fa icon={faLink} /><a href={data.html_url} target="_blank">{repo}</a
-      ></span
-    >
+    <span>
+      <Fa icon={faLink} /><a href={data.html_url} target="_blank">{repo}</a>
+    </span>
   {:catch error}
     <span>an error occoured.</span>
   {/await}

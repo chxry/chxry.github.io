@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+}
+
+body {
+  background: #2e3440;
+  color: #d8dee9;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+info,
+portfolio {
+  padding: 0 0.5em 0 0.5em;
+  width: 100%;
+}
+info h1,
+info p,
+portfolio h1,
+portfolio p {
+  text-align: center;
+}
+info h1 img,
+info h1 svg,
+info p img,
+info p svg,
+portfolio h1 img,
+portfolio h1 svg,
+portfolio p img,
+portfolio p svg {
+  height: 1em;
+  margin-right: 0.2em;
+  transform: translate(0, 4px);
+}
+info h1,
+portfolio h1 {
+  font-weight: 700;
+}
+
+@media (min-width: 1000px) {
+  info {
+    width: 20em;
+  }
+
+  portfolio {
+    width: 36em;
+  }
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  border: 2px solid #d8dee9;
+}
+fieldset legend {
+  font-weight: 700;
+}
+fieldset span {
+  padding: 0.1em 0 0.1em 0;
+}
+fieldset span a {
+  color: #d8dee9 !important;
+}
+fieldset span svg {
+  padding-right: 0.4em;
+}

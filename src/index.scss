@@ -1,0 +1,72 @@
+$bg: #2e3440;
+$fg: #d8dee9;
+
+@mixin font-regular {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  @include font-regular;
+}
+
+body {
+  background: $bg;
+  color: $fg;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+info,
+portfolio {
+  padding: 0 0.5em 0 0.5em;
+  width: 100%;
+  h1,
+  p {
+    text-align: center;
+    img,
+    svg {
+      height: 1em;
+      margin-right: 0.2em;
+      transform: translate(0, 4px);
+    }
+  }
+  h1 {
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 1000px) {
+  info {
+    width: 20em;
+  }
+
+  portfolio {
+    width: 36em;
+  }
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+  border: 2px solid $fg;
+  legend {
+    font-weight: 700;
+  }
+  span {
+    padding: 0.1em 0 0.1em 0;
+    a {
+      color: $fg !important;
+    }
+    svg {
+      padding-right: 0.4em;
+    }
+  }
+}

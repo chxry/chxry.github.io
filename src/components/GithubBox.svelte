@@ -13,6 +13,7 @@
   <legend>{repo}</legend>
   {#await fetchData()}
     <span>loading...</span>
+    <br /><br />
   {:then data}
     <span>{data.description}</span>
     <span><Fa icon={faCode} />{data.language}</span>
@@ -21,5 +22,6 @@
     </span>
   {:catch error}
     <span>an error occoured.</span>
+    <br /><br />
   {/await}
 </fieldset>

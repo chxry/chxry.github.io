@@ -4,7 +4,6 @@
   import Fa from "svelte-fa";
   import {
     faMapMarkerAlt,
-    faCode,
     faTerminal,
     faStream,
   } from "@fortawesome/free-solid-svg-icons";
@@ -13,20 +12,23 @@
     faReact,
     faJs,
     faSass,
+    faLinux,
     faGithubAlt,
     faTwitter,
   } from "@fortawesome/free-brands-svg-icons";
+
+  let icon = "./icon.png";
 </script>
 
 <main>
   <info>
-    <h1><img src="/icon.png" alt="" />chxry</h1>
+    <h1><img on:mouseenter={() => icon="./iconcolor.png"} on:mouseleave={() => icon="./icon.png"} src={icon} alt="" />chxry</h1>
     <p>all round software developer.</p>
     <InfoBox
       title="info"
       info={[
         { icon: faMapMarkerAlt, content: "united kingdom" },
-        { icon: faCode, content: "neovim" },
+        { icon: faTerminal, content: "neovim" },
       ]}
     />
     <InfoBox
@@ -36,7 +38,7 @@
         { icon: faReact, content: "react/svelte" },
         { icon: faJs, content: "javascript/typescript" },
         { icon: faSass, content: "sass/css" },
-        { icon: faTerminal, content: "linux" },
+        { icon: faLinux, content: "linux" },
       ]}
     />
     <InfoBox

@@ -3,6 +3,7 @@
   import { InfoBox, GithubBox } from "./components";
   import Fa from "svelte-fa";
   import {
+    faBullhorn,
     faMapMarkerAlt,
     faTerminal,
     faStream,
@@ -27,6 +28,7 @@
     <InfoBox
       title="info"
       info={[
+        { icon: faBullhorn, content: "call me \"cherry\"" },
         { icon: faMapMarkerAlt, content: "united kingdom" },
         { icon: faTerminal, content: "neovim" },
       ]}

@@ -33,6 +33,7 @@ jobs:
       - uses: actions/setup-node@v4
       - name: tailwind
         run: | 
+         yarn
          yarn tailwindcss -o index.css -m
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3

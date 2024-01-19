@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.pixel {
+		image-rendering: crisp-edges;
+		image-rendering: pixelated;
+	}
+
+	.bg-dots {
+		background: rgb(var(--ctp-base));
+		background-image: radial-gradient(rgb(var(--ctp-surface2)) 1px, transparent 0);
+		background-size: 40px 40px;
+	}
+}

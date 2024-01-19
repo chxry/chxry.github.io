@@ -2,7 +2,8 @@
   "name": "chxry.github.io",
   "version": "1.0.0",
   "scripts": {
-    "dev": "serve & tailwindcss -o index.css -w"
+    "dev": "serve & tailwindcss -i index.css -o main.css -w",
+    "build": "tailwindcss -i index.css -o main.css -m"
   },
   "devDependencies": {
     "@catppuccin/tailwindcss": "^0.1.6",

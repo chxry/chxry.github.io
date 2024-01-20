@@ -3,14 +3,26 @@
 @tailwind utilities;
 
 @layer components {
-	.pixel {
+	.btn {
 		image-rendering: crisp-edges;
 		image-rendering: pixelated;
+		width: 88px;
+		height: 31px;
+		@apply mt-1 mr-1
 	}
 
 	.bg-dots {
 		background: rgb(var(--ctp-base));
 		background-image: radial-gradient(rgb(var(--ctp-surface2)) 1px, transparent 0);
 		background-size: 40px 40px;
+		animation-name: move;
+  	animation-duration: 3s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+	}
+
+	@keyframes move {
+  	from { background-position: 0px 0px; }
+  	to { background-position: 40px 40px; }
 	}
 }

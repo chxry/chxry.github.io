@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./index.html"],
+  content: ["./app.html", "./src/**/*.svelte"],
   theme: {
     fontFamily: {
       mono: ["JetBrains Mono", "monospace"],

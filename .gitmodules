@@ -1,3 +1,3 @@
-[submodule "oneko"]
-	path = oneko
+[submodule "static/oneko"]
+	path = static/oneko
 	url = https://github.com/adryd325/oneko.js

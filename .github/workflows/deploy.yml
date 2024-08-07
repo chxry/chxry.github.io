@@ -26,14 +26,13 @@ jobs:
         with:
           submodules: true
       - uses: actions/setup-node@v4
-      - name: tailwind
-        run: | 
-         yarn
-         yarn build
-      - uses: actions/configure-pages@v4
+      - name: compile
+        run: |
+          npm ci
+          npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: "build/"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,5 +1,5 @@
-module.exports = {
-  content: ["./app.html", "./src/**/*.svelte"],
+export default {
+  content: ["./src/**/*.astro"],
   theme: {
     fontFamily: {
       mono: ["JetBrains Mono", "monospace"],

@@ -13,14 +13,11 @@
 
   .bg-dots {
     background: rgb(var(--ctp-base));
-    background-image: radial-gradient(
-      rgb(var(--ctp-surface2)) 1px,
-      transparent 0
-    );
+    background-image: radial-gradient(rgb(var(--ctp-surface2)) 1px, transparent 0);
     background-size: 40px 40px;
     @media not prefers-reduced-motion {
       animation-name: move;
-      animation-duration: 3s;
+      animation-duration: 4s;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
     }

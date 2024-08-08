@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../Layout.astro";
+import { formatDate } from "../../util.js";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title}>
+  <p class="text-subtext0">{formatDate(post.data.date)}</p>
+  <article class="blog">
+    <hr />
+    <Content />
+  </article>
+  <a href="/blog" class="text-mauve underline">← back to blog</a>
+</Layout>

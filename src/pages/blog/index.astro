@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../Layout.astro";
+import { formatDate } from "../../util.js";
+
+const posts = await getCollection("posts");
+posts.sort((a, b) => b.data.date - a.data.date);
+---
+
+<Layout title="blog">
+  <p>i probably won't write anything here.</p>
+  {
+    posts.map((post) => (
+      <div>
+        <a href={"/blog/" + post.slug} class="text-xl underline">
+          {post.data.title}
+        </a>
+        <p class="text-subtext0">{formatDate(post.data.date)}</p>
+      </div>
+    ))
+  }
+</Layout>

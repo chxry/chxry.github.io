@@ -23,6 +23,69 @@
     }
   }
 
+  .blog {
+    h1,
+    h2 {
+      @apply text-3xl mb-2;
+    }
+
+    h3,
+    h4 {
+      @apply text-2xl mb-1;
+    }
+
+    h5,
+    h6 {
+      @apply text-xl mb-0.5;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-bold before:text-lavender before:mr-2 before:content-["#"];
+    }
+
+    p {
+      @apply mb-2;
+    }
+
+    ul {
+      @apply list-disc list-inside;
+    }
+
+    ol {
+      @apply list-decimal list-inside;
+    }
+
+    a {
+      @apply underline text-lavender;
+    }
+
+    hr {
+      @apply my-2 border-t-2 border-overlay2;
+    }
+
+    blockquote {
+      @apply border-l-4 border-overlay2 text-overlay2 my-4 pl-4;
+    }
+
+    code,
+    pre {
+      @apply text-subtext0 !bg-mantle p-1 rounded-md text-sm;
+    }
+
+    code span:empty {
+      @apply hidden;
+    }
+
+    pre {
+      @apply my-2;
+    }
+  }
+
   @keyframes move {
     from {
       background-position: 0px 0px;

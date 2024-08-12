@@ -13,16 +13,16 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:wght@700&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="mocha bg-dots text-text font-mono text-sm md:text-[1rem] md:leading-6 relative">
-    <div class="max-w-[50rem] mx-auto p-2 md:p-6 min-h-screen">
-      <h1 class="font-extrabold text-5xl md:text-7xl mb-2">
-        <img class="inline h-[1em] mr-2 rounded-sm" src="/icon.png" />chxry
+  <body class="latte dark:mocha bg-dots text-text font-inter text-sm md:text-[1rem] md:leading-6 relative">
+    <div class="max-w-[50rem] mx-auto p-2 md:p-8 min-h-screen">
+      <h1 class="font-extrabold text-5xl md:text-7xl mb-2 font-poppins">
+        <img class="inline h-[1em] mr-2 rounded-sm transition-transform hover:rotate-3" src="/icon.png" />chxry
       </h1>
-      {title && <h1 class="text-3xl font-bold">{title}:</h1>}
+      {title && <h1 class="text-3xl font-bold font-poppins">{title}:</h1>}
       <slot />
       {
         title && (
@@ -31,10 +31,41 @@ const { title } = Astro.props;
           </a>
         )
       }
-      <p class="absolute bottom-2 text-sm text-subtext0">
-        pfp: <a class="underline" href="https://twitter.com/urct">urct</a>
-      </p>
+      <footer class="absolute bottom-2 text-sm text-subtext0 space-x-2">
+        <span>pfp: <a class="underline" href="https://twitter.com/urct">urct</a></span>
+        <button id="catToggle" class="underline"></button>
+      </footer>
     </div>
-    <script src="/oneko/oneko.js" data-cat="/oneko/oneko.gif"></script>
+    <script>
+      const catToggle = document.getElementById("catToggle");
+
+      const enableCat = () => {
+        console.log("enable");
+        localStorage.setItem("oneko", true);
+        let el = document.createElement("script");
+        el.setAttribute("src", "/oneko/oneko.js");
+        el.setAttribute("data-cat", "/oneko/oneko.gif");
+        el.setAttribute("id", "oneko-script");
+        document.body.appendChild(el);
+        catToggle.innerText = "disable cat";
+        catToggle.onclick = disableCat;
+      };
+
+      const disableCat = () => {
+        console.log("disable");
+        localStorage.setItem("oneko", false);
+        document.getElementById("oneko-script").remove();
+        document.getElementById("oneko").remove();
+        catToggle.innerText = "enable cat";
+        catToggle.onclick = enableCat;
+      };
+
+      if (localStorage.getItem("oneko") != "false") {
+        enableCat();
+      } else {
+        catToggle.innerText = "enable cat";
+        catToggle.onclick = enableCat;
+      }
+    </script>
   </body>
 </html>

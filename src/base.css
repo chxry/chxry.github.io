@@ -74,7 +74,13 @@
 
     code,
     pre {
-      @apply text-subtext0 !bg-mantle p-1 rounded-md text-sm;
+      @apply text-subtext0 !bg-mantle p-1 rounded-md text-sm font-jetbrains;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      code span {
+        color: var(--shiki-dark) !important;
+      }
     }
 
     code span:empty {

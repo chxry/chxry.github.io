@@ -5,7 +5,10 @@ export default defineConfig({
   integrations: [tailwind({ applyBaseStyles: false })],
   markdown: {
     shikiConfig: {
-      theme: "catppuccin-mocha"
+      themes: {
+        light: "catppuccin-latte",
+        dark: "catppuccin-mocha"
+      }
     }
   }
 });

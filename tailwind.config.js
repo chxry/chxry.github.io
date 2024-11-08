@@ -1,5 +1,5 @@
 export default {
-  content: ["./src/**/*.astro"],
+  content: ["./src/**/*.{astro,js}"],
   theme: {
     fontFamily: {
       inter: ["Inter", "sans-serif"],

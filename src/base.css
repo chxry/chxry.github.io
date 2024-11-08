@@ -23,6 +23,18 @@
     }
   }
 
+  .system {
+    @apply latte dark:mocha;
+  }
+
+  .light {
+    @apply latte;
+  }
+
+  .dark {
+    @apply mocha;
+  }
+
   .blog {
     h1,
     h2 {

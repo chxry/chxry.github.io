@@ -16,11 +16,12 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:wght@700&display=swap"
       rel="stylesheet"
     />
+    <script src="./index.js"></script>
   </head>
-  <body class="latte dark:mocha bg-dots text-text font-inter text-sm md:text-[1rem] md:leading-6 relative">
+  <body class="system bg-dots text-text font-inter text-sm md:text-[1rem] md:leading-6 relative md:text-lg">
     <div class="max-w-[50rem] mx-auto p-2 md:p-8 min-h-screen">
-      <h1 class="font-extrabold text-5xl md:text-7xl mb-2 font-poppins">
-        <img class="inline h-[1em] mr-2 rounded-sm transition-transform hover:rotate-3" src="/icon.png" />chxry
+      <h1 class="font-extrabold text-5xl md:text-7xl mb-2 font-poppins font-boldr">
+        <img class="inline w-[1em] h-[1em] mr-2 rounded-sm transition-transform hover:rotate-3" src="/icon.png" />chxry
       </h1>
       {title && <h1 class="text-3xl font-bold font-poppins">{title}:</h1>}
       <slot />
@@ -32,40 +33,10 @@ const { title } = Astro.props;
         )
       }
       <footer class="absolute bottom-2 text-sm text-subtext0 space-x-2">
-        <span>pfp: <a class="underline" href="https://twitter.com/urct">urct</a></span>
-        <button id="catToggle" class="underline"></button>
+        <span>pfp: <a class="underline" href="https://skeb.jp/@urct">urct</a></span>
+        <span>theme: <button id="themeToggle" class="underline">system</button></span>
+        <button id="catToggle" class="underline">enable cat</button>
       </footer>
     </div>
-    <script>
-      const catToggle = document.getElementById("catToggle");
-
-      const enableCat = () => {
-        console.log("enable");
-        localStorage.setItem("oneko", true);
-        let el = document.createElement("script");
-        el.setAttribute("src", "/oneko/oneko.js");
-        el.setAttribute("data-cat", "/oneko/oneko.gif");
-        el.setAttribute("id", "oneko-script");
-        document.body.appendChild(el);
-        catToggle.innerText = "disable cat";
-        catToggle.onclick = disableCat;
-      };
-
-      const disableCat = () => {
-        console.log("disable");
-        localStorage.setItem("oneko", false);
-        document.getElementById("oneko-script").remove();
-        document.getElementById("oneko").remove();
-        catToggle.innerText = "enable cat";
-        catToggle.onclick = enableCat;
-      };
-
-      if (localStorage.getItem("oneko") != "false") {
-        enableCat();
-      } else {
-        catToggle.innerText = "enable cat";
-        catToggle.onclick = enableCat;
-      }
-    </script>
   </body>
 </html>

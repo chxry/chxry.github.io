@@ -14,12 +14,12 @@ const keys = [
     keys.map(({ name, path, raw }) => (
       <>
         <h2 class="text-lg">
-          {name}:{" "}
+          {name}:
           <a class="underline text-lavender" href={path}>
             raw
           </a>
         </h2>
-        <pre class="text-sm text-subtext0 font-jetbrains">{raw}</pre>
+        <pre class="text-xs text-subtext0 font-jetbrains">{raw}</pre>
       </>
     ))
   }

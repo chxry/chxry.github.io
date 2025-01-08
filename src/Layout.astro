@@ -8,35 +8,37 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>chxry</title>
+    <title>{title ? `${title} - chxry` : "chxry"}</title>
     <link rel="icon" href="/icon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:wght@700&display=swap"
-      rel="stylesheet"
-    />
     <script src="./index.js"></script>
   </head>
   <body class="system bg-dots text-text font-inter text-sm md:text-[1rem] md:leading-6 relative md:text-lg">
-    <div class="max-w-[50rem] mx-auto p-2 md:p-8 min-h-screen">
+    <main class="max-w-[52rem] mx-auto p-2 md:p-8 min-h-screen">
       <h1 class="font-extrabold text-5xl md:text-7xl mb-2 font-poppins font-boldr">
-        <img class="inline w-[1em] h-[1em] mr-2 rounded-sm transition-transform hover:rotate-3" src="/icon.png" />chxry
+        <img
+          class="inline w-[1em] h-[1em] mr-2 rounded-sm transition-transform hover:rotate-3"
+          src="/icon.png"
+          alt="hu tao"
+        />chxry
       </h1>
-      {title && <h1 class="text-3xl font-bold font-poppins">{title}:</h1>}
-      <slot />
-      {
-        title && (
-          <a href="/" class="underline text-blue">
-            ← back to home
-          </a>
-        )
-      }
+      <div id="content">
+        {title && <h1 class="text-3xl font-bold font-poppins">{title}:</h1>}
+        <slot />
+        {
+          title && (
+            <a href="/" class="underline text-blue font-bold text-lg md:text-xl">
+              ← back to home
+            </a>
+          )
+        }
+      </div>
+      <!-- todo: this scrolls weirdly on mobile? -->
       <footer class="absolute bottom-2 text-sm text-subtext0 space-x-2">
-        <span>pfp: <a class="underline" href="https://skeb.jp/@urct">urct</a></span>
         <span>theme: <button id="themeToggle" class="underline">system</button></span>
         <button id="catToggle" class="underline">enable cat</button>
       </footer>
-    </div>
+    </main>
   </body>
 </html>

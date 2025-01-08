@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:wght@700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +9,7 @@
     image-rendering: pixelated;
     width: 88px;
     height: 31px;
-    @apply md:mt-1 md:mr-1;
+    @apply mr-1 mt-1 md:mr-2 md:mt-2;
   }
 
   .bg-dots {
@@ -25,6 +26,11 @@
 
   .system {
     @apply latte dark:mocha;
+    @media (prefers-color-scheme: dark) {
+      code span {
+        color: var(--shiki-dark) !important;
+      }
+    }
   }
 
   .light {
@@ -33,6 +39,9 @@
 
   .dark {
     @apply mocha;
+    code span {
+      color: var(--shiki-dark) !important;
+    }
   }
 
   .blog {
@@ -84,15 +93,8 @@
       @apply border-l-4 border-overlay2 text-overlay2 my-4 pl-4;
     }
 
-    code,
     pre {
-      @apply text-subtext0 !bg-mantle p-1 rounded-md text-sm font-jetbrains;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      code span {
-        color: var(--shiki-dark) !important;
-      }
+      @apply text-subtext0 !bg-mantle p-2 rounded-md text-sm font-jetbrains;
     }
 
     code span:empty {

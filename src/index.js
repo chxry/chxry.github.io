@@ -2,7 +2,7 @@ const themeToggle = document.getElementById("themeToggle");
 const themes = ["system", "light", "dark"];
 let theme = themes.indexOf(localStorage.getItem("theme"));
 if (theme < 0) {
-  theme = 0;
+  theme = 2;
 }
 
 const toggleTheme = () => {
@@ -43,3 +43,27 @@ if (localStorage.getItem("oneko") != "false") {
 } else {
   catToggle.onclick = enableCat;
 }
+
+async function swapContent(url) {
+  // todo maybe swap in some loading indication
+  const html = await (await fetch(url)).text();
+  const doc = new DOMParser().parseFromString(html, "text/html");
+
+  document.getElementById("content").replaceWith(doc.getElementById("content"));
+  document.title = doc.querySelector("title").textContent;
+}
+
+document.body.addEventListener("click", (event) => {
+  if (event.target.tagName === "A") {
+    const url = new URL(event.target.href);
+    if (url.origin === window.location.origin) {
+      event.preventDefault();
+      swapContent(url);
+      window.history.pushState({}, "", url);
+    }
+  }
+});
+
+window.addEventListener("popstate", () => {
+  swapContent(window.location.href);
+});

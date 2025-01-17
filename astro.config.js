@@ -1,5 +1,7 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export default defineConfig({
   integrations: [tailwind({ applyBaseStyles: false })],
@@ -7,8 +9,21 @@ export default defineConfig({
     shikiConfig: {
       themes: {
         light: "catppuccin-latte",
-        dark: "catppuccin-mocha"
-      }
-    }
-  }
+        dark: "catppuccin-mocha",
+      },
+    },
+    rehypePlugins: [
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "prepend",
+          content: {
+            type: "text",
+            value: "#",
+          },
+        },
+      ],
+    ],
+  },
 });

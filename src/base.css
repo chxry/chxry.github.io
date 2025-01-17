@@ -66,7 +66,16 @@
     h4,
     h5,
     h6 {
-      @apply font-bold before:text-lavender before:mr-2 before:content-["#"];
+      @apply font-bold;
+    }
+
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a {
+      @apply no-underline mr-2;
     }
 
     p {
@@ -93,8 +102,13 @@
       @apply border-l-4 border-overlay2 text-overlay2 my-4 pl-4;
     }
 
+    code,
     pre {
-      @apply text-subtext0 !bg-mantle p-2 rounded-md text-sm font-jetbrains;
+      @apply text-subtext0 !bg-mantle rounded-md text-sm font-jetbrains;
+    }
+
+    code {
+      @apply p-1;
     }
 
     code span:empty {
@@ -102,7 +116,7 @@
     }
 
     pre {
-      @apply my-2;
+      @apply p-2 my-2;
     }
   }
 

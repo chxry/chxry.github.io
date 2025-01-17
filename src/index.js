@@ -44,17 +44,30 @@ if (localStorage.getItem("oneko") != "false") {
   catToggle.onclick = enableCat;
 }
 
-async function swapContent(url) {
+const swapContent = async (url) => {
   // todo maybe swap in some loading indication
   const html = await (await fetch(url)).text();
   const doc = new DOMParser().parseFromString(html, "text/html");
 
   document.getElementById("content").replaceWith(doc.getElementById("content"));
   document.title = doc.querySelector("title").textContent;
-}
+};
 
-document.body.addEventListener("click", (event) => {
-  if (event.target.tagName === "A") {
+const prefetch = (event) => {
+  if (event.target.tagName === "A" && !event.target.dataset.hasOwnProperty("noprefetch")) {
+    const url = new URL(event.target.href);
+    if (url.origin === window.location.origin) {
+      fetch(url, { priority: "low" });
+    }
+  }
+};
+
+document.body.addEventListener("mouseover", (event) => prefetch(event));
+
+document.body.addEventListener("touchstart", (event) => prefetch(event));
+
+document.body.addEventListener("click", async (event) => {
+  if (event.target.tagName === "A" && !event.target.dataset.hasOwnProperty("noprefetch")) {
     const url = new URL(event.target.href);
     if (url.origin === window.location.origin) {
       event.preventDefault();
@@ -65,5 +78,8 @@ document.body.addEventListener("click", (event) => {
 });
 
 window.addEventListener("popstate", () => {
-  swapContent(window.location.href);
+  const url = new URL(window.location.href);
+  if (url.origin === window.location.origin) {
+    swapContent(url);
+  }
 });

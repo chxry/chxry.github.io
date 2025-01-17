@@ -13,6 +13,16 @@ The quick _brown_ **fox** jumped over the **_lazy_** dog. Inline `code` and [lin
 fn main() {
     println!("code block");
 }
+
+fn safe(nums: &[i32]) -> bool {
+  let dir = nums[0] < nums[nums.len() - 1];
+  for i in 1..nums.len() {
+    if !((1..=3).contains(&nums[i].abs_diff(nums[i - 1])) && (nums[i - 1] < nums[i]) == dir) {
+      return false;
+    }
+  }
+  true
+}
 ```
 
 ### ordered list

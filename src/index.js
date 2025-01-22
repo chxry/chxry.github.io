@@ -45,12 +45,14 @@ if (localStorage.getItem("oneko") != "false") {
 }
 
 const swapContent = async (url) => {
-  // todo maybe swap in some loading indication
+  const content = document.getElementById("content");
+  const timeout = setTimeout(() => (content.innerText = "loading..."), 100);
   const html = await (await fetch(url)).text();
   const doc = new DOMParser().parseFromString(html, "text/html");
+  clearTimeout(timeout);
 
-  document.getElementById("content").replaceWith(doc.getElementById("content"));
-  document.title = doc.querySelector("title").textContent;
+  content.replaceWith(doc.getElementById("content"));
+  document.head.replaceWith(doc.head);
 };
 
 const prefetch = (event) => {
@@ -82,4 +84,9 @@ window.addEventListener("popstate", () => {
   if (url.origin === window.location.origin) {
     swapContent(url);
   }
+});
+
+document.getElementById("emoji").addEventListener("mouseover", (event) => {
+  const emojis = ["❤️", "🩷", "💜", "🎀", "✨", "🌸", "💕", "🌷", "🌺", "💝"];
+  event.target.innerText = emojis[Math.floor(Math.random() * emojis.length)];
 });

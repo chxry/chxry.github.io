@@ -15,7 +15,9 @@ posts.sort((a, b) => b.data.date - a.data.date);
         <a href={"/blog/" + post.slug} class="text-xl underline">
           {post.data.title}
         </a>
-        <p class="text-subtext0">{formatDate(post.data.date)}</p>
+        <p class="text-subtext0">
+          {post.data.description} - {formatDate(post.data.date)}
+        </p>
       </div>
     ))
   }

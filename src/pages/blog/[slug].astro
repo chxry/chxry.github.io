@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../Layout.astro";
+import Back from "../../Back.astro";
 import { formatDate } from "../../util.js";
 
 export const getStaticPaths = async () => {
@@ -15,10 +16,10 @@ const { Content } = await post.render();
 ---
 
 <Layout title={post.data.title}>
-  <p class="text-subtext0">{formatDate(post.data.date)}</p>
+  <p class="text-subtext0">{post.data.description} - {formatDate(post.data.date)}</p>
   <article class="blog">
     <hr />
     <Content />
   </article>
-  <a href="/blog" class="text-mauve underline font-bold text-lg md:text-xl">← back to blog</a>
-</Layout>
+  <Back href="/blog" color="text-mauve" label="blog" /></Layout
+>

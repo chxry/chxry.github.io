@@ -9,7 +9,7 @@
     image-rendering: pixelated;
     width: 88px;
     height: 31px;
-    @apply mr-1 mt-1 md:mr-2 md:mt-2;
+    @apply mt-1 md:mr-2 md:mt-2;
   }
 
   .bg-dots {
@@ -107,7 +107,7 @@
       @apply text-subtext0 !bg-mantle rounded-md text-sm font-jetbrains;
     }
 
-    code {
+    :not(pre) code {
       @apply p-1;
     }
 

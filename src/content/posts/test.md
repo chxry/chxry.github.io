@@ -1,5 +1,6 @@
 ---
 title: test post
+description: markdown syntax testing
 date: 2024-08-08
 ---
 

@@ -1,0 +1,7 @@
+---
+let { color, href, label } = Astro.props;
+---
+
+<a href={href} class={`underline font-bold text-lg md:text-xl mr-1 ${color}`}
+  ><span class="font-jetbrains">←</span> back to {label}</a
+>
